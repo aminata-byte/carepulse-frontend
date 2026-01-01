@@ -40,15 +40,15 @@ export default defineConfig([
       // other options...
     },
   },
-])
+]);
 ```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
 // eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import reactX from 'eslint-plugin-react-x';
+import reactDom from 'eslint-plugin-react-dom';
 
 export default defineConfig([
   globalIgnores(['dist']),
@@ -69,5 +69,119 @@ export default defineConfig([
       // other options...
     },
   },
-])
+]);
 ```
+
+````js
+
+# Carepulse Frontend - Application de Gestion de Rendez-vous Médicaux
+
+Application React/TypeScript moderne pour la prise de rendez-vous médicaux.
+
+## 🚀 Stack Technique
+
+- **Framework** : React 19 + TypeScript
+- **Build Tool** : Vite
+- **Styling** : Tailwind CSS
+- **Routing** : React Router v7
+- **State Management** : Zustand
+- **HTTP Client** : Axios
+- **Testing** : Vitest + Testing Library
+- **Code Quality** : ESLint + Prettier
+
+## 📁 Structure du Projet (Feature-Based)
+SRC
+│   App.css
+│   App.tsx
+│   index.css
+│   main.tsx
+│
+├───app
+├───assets
+│       react.svg
+│
+├───components
+│   ├───Avatar
+│   ├───Button
+│   ├───Input
+│   ├───Modal
+│   └───Table
+├───features
+│   ├───appointments
+│   │   ├───components
+│   │   ├───hooks
+│   │   ├───services
+│   │   └───types
+│   ├───auth
+│   │   ├───components
+│   │   ├───hooks
+│   │   ├───services
+│   │   └───types
+│   ├───doctors
+│   │   ├───components
+│   │   ├───hooks
+│   │   ├───services
+│   │   └───types
+│   └───profile
+│       ├───components
+│       ├───hooks
+│       ├───services
+│       └───types
+├───lib
+│       api.ts
+│       validators.ts
+│
+└───store
+
+
+## ✅ Setup Complet Réalisé
+
+### **1. Installation des Dépendances** ✅
+```cmd
+npm create vite@latest carepulse-frontend -- --template react-ts
+npm install
+npm install -D tailwindcss postcss autoprefixer
+npm install -D eslint prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser
+npm install -D vitest @testing-library/react @testing-library/jest-dom
+npm install react-router-dom zustand axios
+
+:: Création de l'architecture feature-based
+mkdir src\app
+
+:: Composants réutilisables
+mkdir src\components\Button
+mkdir src\components\Input
+mkdir src\components\Modal
+mkdir src\components\Avatar
+mkdir src\components\Table
+
+:: Features organisées par domaine
+mkdir src\features\auth\components
+mkdir src\features\auth\hooks
+mkdir src\features\auth\services
+mkdir src\features\auth\types
+
+mkdir src\features\appointments\components
+mkdir src\features\appointments\hooks
+mkdir src\features\appointments\services
+mkdir src\features\appointments\types
+
+mkdir src\features\profile\components
+mkdir src\features\profile\hooks
+mkdir src\features\profile\services
+mkdir src\features\profile\types
+
+mkdir src\features\doctors\components
+mkdir src\features\doctors\hooks
+mkdir src\features\doctors\services
+mkdir src\features\doctors\types
+
+:: Utilitaires et state management
+mkdir src\lib
+mkdir src\store
+mkdir src\test
+
+Comment Démarrer
+npm run dev
+
+````
