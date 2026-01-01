@@ -1,11 +1,10 @@
-import React from 'react';
 
 function App() {
   return (
     <div className="flex h-screen max-h-screen overflow-hidden">
       {/* SECTION GAUCHE : FORMULAIRE */}
       <section className="flex-1 bg-dark flex flex-col justify-center px-10 md:px-20 lg:px-32">
-        <div className="max-w-[496px] w-full mx-auto">
+        <div className="max-w-96 w-full mx-auto">
           
           {/* Titre avec votre couleur PRIMARY */}
           <header className="mb-10">
@@ -16,7 +15,7 @@ function App() {
           <form className="space-y-6">
             {/* Nom Complet */}
             <div className="flex flex-col gap-2">
-              <label className="text-gray-secondary text-sm font-medium">votre nom</label>
+              <label className="text-gray-secondary text-sm font-medium ">votre nom</label>
               <input 
                 type="text" 
                 placeholder="champs de saisie"
