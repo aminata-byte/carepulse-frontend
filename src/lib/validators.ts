@@ -114,16 +114,14 @@ export const PlanifierRendezVousSchema = z.object({
  */
 export const ProfilPatientCompletSchema = z.object({
   /* =====================
-     INFORMATIONS PERSONNELLES
+    INFORMATIONS PERSONNELLES
      ===================== */
   nomComplet: z
     .string()
     .min(2, "Le nom complet est obligatoire")
     .max(50, "Le nom ne peut pas dépasser 50 caractères"),
 
-  email: z
-    .string()
-    .email("Adresse email invalide"),
+  email: z.email("Adresse email invalide"),
 
   telephone: z
     .string()
@@ -140,9 +138,7 @@ export const ProfilPatientCompletSchema = z.object({
       "La date de naissance doit être dans le passé"
     ),
 
-  genre: z.enum(["Homme", "Femme", "Autre"], {
-    errorMap: () => ({ message: "Veuillez sélectionner un genre" }),
-  }),
+  genre: z.string().refine(val => ["Homme", "Femme", "Autre"].includes(val), { message: "Veuillez sélectionner un genre" }),
 
   adresse: z
     .string()
