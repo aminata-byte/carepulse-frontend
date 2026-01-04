@@ -1,33 +1,30 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { InscriptionPatient } from '@/features/auth/components/InscriptionPatient';
 import { PatientFormPage } from '@/features/profile/components/PatientFormPage';
 import { AppointmentRequestPage } from '@/features/appointments/components/AppointmentRequestPage';
+import { AppointmentSuccessPage } from '@/features/appointments/components/AppointmentSuccessPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* 1️⃣ Inscription */}
         <Route path="/" element={<InscriptionPatient />} />
-        <Route path="/complete-profile" element={<PatientFormPage />} />
-        <Route path="/new-appointment" element={<AppointmentRequestPage />} />
         
-
-        {/* Ajouter d'autres routes ici */}
+        {/* 2️⃣ Formulaire patient complet */}
+        <Route path="/complete-profile" element={<PatientFormPage />} />
+        
+        {/* 3️⃣ Demande de rendez-vous */}
+        <Route path="/demande-rendez-vous" element={<AppointmentRequestPage />} />
+        
+        {/* 4️⃣ Page de succès */}
+        <Route path="/appointment-success" element={<AppointmentSuccessPage />} />
+        
+        {/* Redirection si route inconnue */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
-
-
-
-
-// ✅ features/auth/components/InscriptionPatient.tsx  → UI
-// ✅ features/auth/hooks/useInscription.ts            → Logique
-// ✅ features/auth/services/authService.ts            → API
-// ✅ features/auth/types/auth.types.ts                → Types
-// ✅ components/Input/Input.tsx                       → Réutilisable
-// ✅ components/Button/Button.tsx                     → Réutilisable
-// ✅ store/useAuthStore.ts                            → État global
-// ✅ lib/validators.ts                                → Validation
