@@ -82,7 +82,7 @@ export const useInscription = () => {
       });
 
       // Redirection
-      navigate('/demande-rendez-vous');
+      navigate('/complete-profile');
     } catch (error) {
       console.error('Erreur inscription:', error);
       setErrors({ general: 'Une erreur est survenue. Veuillez réessayer.' });

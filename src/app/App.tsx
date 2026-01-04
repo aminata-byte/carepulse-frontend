@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { InscriptionPatient } from '@/features/auth/components/InscriptionPatient';
+import { PatientFormPage } from '@/features/profile/components/PatientFormPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<InscriptionPatient />} />
+        <Route path="/complete-profile" element={<PatientFormPage />} />
         {/* Ajouter d'autres routes ici */}
       </Routes>
     </BrowserRouter>
