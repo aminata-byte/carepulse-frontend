@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { InscriptionPatient } from '@/features/auth/components/InscriptionPatient';
 import { PatientFormPage } from '@/features/profile/components/PatientFormPage';
+import { AppointmentRequestPage } from '@/features/appointments/components/AppointmentRequestPage';
 
 function App() {
   return (
@@ -8,6 +9,9 @@ function App() {
       <Routes>
         <Route path="/" element={<InscriptionPatient />} />
         <Route path="/complete-profile" element={<PatientFormPage />} />
+        <Route path="/new-appointment" element={<AppointmentRequestPage />} />
+        
+
         {/* Ajouter d'autres routes ici */}
       </Routes>
     </BrowserRouter>
