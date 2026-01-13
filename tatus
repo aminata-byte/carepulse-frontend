@@ -1,0 +1,15 @@
+[33m428ba20[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m appointementSussessPage au complet
+[33mb3a47a0[m  correction de redirection et creation de page AppointementSuccesPage
+[33md987dae[m creation de la page AppointmentRequestPage en cours
+[33mb6a8fe2[m creation de la page PatientFormPage
+[33m00207b1[m creation de la page inscriptionPatient
+[33m43eb34b[m configuration du validators
+[33ma53b196[m configuration du validators
+[33m333dad1[m integration du zostand :useAuthStore.ts,useProfileStore.ts,useAppointmentStore.ts,useDoctorStore.ts et useNotificationStore.ts
+[33mac0d88b[m configuration du tailwind (personnalisé)
+[33m09c4859[m cration de app.txt
+[33m72f3c2f[m Merge branch 'develop' git push origin main
+[33mfd7417d[m structure complet
+[33m0733919[m deleted:    src/App.css
+[33me0c1007[m chore: add configuration files - Tailwind, PostCSS, ESLint, Prettier, Vitest
+[33m62a0df4[m chore: install dependencies - React, TypeScript, Tailwind, ESLint, Prettier, Vitest, Router, Zustand, Axios
