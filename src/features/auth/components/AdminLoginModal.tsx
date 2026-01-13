@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Modal } from '@/components/Modal/Modal';
 import { Input } from '@/components/Input/Input';
 import { useAuthStore } from '@/store/useAuthStore';
@@ -36,7 +37,14 @@ const AdminLoginSchema = z.object({
 
 /* ================= COMPONENT ================= */
 
-export const AdminLoginModal = ({ isOpen, onClose }: any) => {
+interface AdminLoginModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({ isOpen, onClose }) => {
+  const navigate = useNavigate(); // ✅ DÉPLACÉ ICI, À L'INTÉRIEUR DU COMPOSANT
+  
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState<any>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -81,13 +89,23 @@ export const AdminLoginModal = ({ isOpen, onClose }: any) => {
   };
 
   const handlePinSuccess = () => {
+    console.log('✅ PIN verified successfully');
+    
+    // PIN valide → Connexion complète
     login({
       id: 'admin-001',
-      email: 'admin@carepulse.com',
+      email: formData.email,
       role: 'admin',
     });
+
+    // Fermer tous les modals
     setShowPinModal(false);
     onClose();
+
+    // Rediriger vers le dashboard admin
+    navigate('/admin/dashboard');
+    
+    console.log('✅ Connexion admin complète - Redirection vers /admin/dashboard');
   };
 
   /* ================= RENDER ================= */
@@ -95,47 +113,60 @@ export const AdminLoginModal = ({ isOpen, onClose }: any) => {
   return (
     <>
       <Modal isOpen={isOpen && !showPinModal} onClose={onClose}>
-        <div className="bg-dark-light rounded-2xl border border-dark-lighter">
-          <div className="flex justify-between p-6 border-b border-dark-lighter">
-            <h2 className="text-white text-xl">Connexion Admin</h2>
-            <button onClick={onClose}><CloseIcon /></button>
+        <div className="bg-dark-light rounded-2xl border border-dark-lighter shadow-xl">
+          <div className="flex justify-between items-center p-6 border-b border-dark-lighter">
+            <h2 className="text-white text-xl font-semibold">Connectez-vous à votre compte</h2>
+            <button 
+              onClick={onClose}
+              className="text-gray-secondary hover:text-white transition"
+            >
+              <CloseIcon />
+            </button>
           </div>
 
           <div className="p-6 space-y-5">
 
             {errors.general && (
-              <p className="text-red-500">{errors.general}</p>
+              <div className="p-4 bg-red-500/10 border border-red-500 rounded-lg">
+                <p className="text-red-500 text-sm">{errors.general}</p>
+              </div>
             )}
 
             <Input
               name="email"
               type="email"
               label="E-mail"
+              placeholder="admin@carepulse.com"
               value={formData.email}
               onChange={handleChange}
               icon={<MailIcon />}
+              error={errors.email?.[0]}
             />
 
             <Input
               name="password"
               type="password"
               label="Mot de passe"
+              placeholder="••••••••"
               value={formData.password}
               onChange={handleChange}
               icon={<LockIcon />}
+              error={errors.password?.[0]}
             />
 
             <button
               onClick={handleSubmit}
               disabled={isLoading}
-              className="w-full bg-primary py-3 rounded-lg text-white"
+              className="w-full bg-primary hover:bg-primary-dark disabled:bg-primary/50 py-3 rounded-lg text-white font-semibold transition-colors shadow-green"
             >
               {isLoading ? 'Connexion...' : 'Se connecter'}
             </button>
 
-            <p className="text-xs text-gray-secondary">
-              Test : admin@carepulse.com / admin123
-            </p>
+            <div className="p-3 bg-dark rounded-lg border border-dark-lighter">
+              <p className="text-xs text-gray-secondary">
+                <strong className="text-white">Test :</strong> admin@carepulse.com / admin123
+              </p>
+            </div>
           </div>
         </div>
       </Modal>

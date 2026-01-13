@@ -3,6 +3,7 @@ import { InscriptionPatient } from '@/features/auth/components/InscriptionPatien
 import { PatientFormPage } from '@/features/profile/components/PatientFormPage';
 import { AppointmentRequestPage } from '@/features/appointments/components/AppointmentRequestPage';
 import { AppointmentSuccessPage } from '@/features/appointments/components/AppointmentSuccessPage';
+import { AdminDashboard } from '@/features/auth/components/AdminDashboard'; // ← AJOUTER
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         
         {/* 4️⃣ Page de succès */}
         <Route path="/appointment-success" element={<AppointmentSuccessPage />} />
+        
+        {/* 5️⃣ Dashboard Admin */}
+        <Route path="/admin/dashboard" element={<AdminDashboard />} /> {/* ← AJOUTER */}
         
         {/* Redirection si route inconnue */}
         <Route path="*" element={<Navigate to="/" replace />} />
