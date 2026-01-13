@@ -249,10 +249,10 @@ export const AdminDashboard = () => {
             {/* Pagination */}
             <div className="flex justify-between items-center px-6 py-4 border-t border-dark-lighter">
               <button className="text-gray-secondary hover:text-white transition text-sm">
-                ← Previous
+                ← 
               </button>
-              <button className="text-gray-secondary hover:text-white transition text-sm">
-                Next →
+              <button className="text-gray-secondary hover:text-white transition text-sm ">
+                →
               </button>
             </div>
           </div>
