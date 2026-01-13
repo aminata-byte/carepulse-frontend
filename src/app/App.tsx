@@ -3,7 +3,7 @@ import { InscriptionPatient } from '@/features/auth/components/InscriptionPatien
 import { PatientFormPage } from '@/features/profile/components/PatientFormPage';
 import { AppointmentRequestPage } from '@/features/appointments/components/AppointmentRequestPage';
 import { AppointmentSuccessPage } from '@/features/appointments/components/AppointmentSuccessPage';
-import { AdminDashboard } from '@/features/auth/components/AdminDashboard'; // ← AJOUTER
+import { AdminDashboard } from '@/features/admin/components/AdminDashboard'; // ← AJOUTER
 
 function App() {
   return (
