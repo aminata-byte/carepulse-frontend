@@ -34,7 +34,10 @@ export const Select: React.FC<SelectProps> = ({
             w-full px-4 py-3.5 
             bg-dark-light 
             border-2 
-            ${error ? 'border-red-500' : 'border-transparent focus:border-primary'}
+            ${error 
+              ? 'border-red-500' 
+              : 'border-gray-secondary focus:border-primary'
+            }
             rounded-lg
             text-white
             appearance-none

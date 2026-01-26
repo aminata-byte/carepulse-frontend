@@ -37,7 +37,10 @@ export const Input: React.FC<InputProps> = ({
             ${icon ? 'pl-12' : 'pl-4'}
             bg-dark-light 
             border-2 
-            ${error ? 'border-red-500' : 'border-transparent focus:border-primary'}
+            ${error 
+              ? 'border-red-500' 
+              : 'border-gray-secondary focus:border-primary'
+            }
             rounded-lg
             text-white
             placeholder:text-gray-secondary

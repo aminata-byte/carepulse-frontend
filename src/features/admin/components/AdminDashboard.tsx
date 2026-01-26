@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuthStore } from '@/store/useAuthStore';
+import  { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { useAuthStore } from '@/store/useAuthStore';
 import { useAppointmentStore } from '@/store/useAppointmentStore';
 import { ScheduleAppointmentModal } from './ScheduleAppointmentModal';
 import { CancelAppointmentModal } from './CancelAppointmentModal';
 
 export const AdminDashboard = () => {
-  const navigate = useNavigate();
-  const { user, logout } = useAuthStore();
+  // const navigate = useNavigate();
+  // const { user, logout } = useAuthStore();
   const { appointments, updateStatus } = useAppointmentStore();
 
   // States pour les modals
@@ -15,10 +15,10 @@ export const AdminDashboard = () => {
   const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
   const [selectedAppointment, setSelectedAppointment] = useState<any>(null);
 
-  const handleLogout = () => {
-    logout();
-    navigate('/');
-  };
+  // const handleLogout = () => {
+  //   logout();
+  //   navigate('/');
+  // };
 
   const handleSchedule = (appointmentId: string) => {
     const appointment = appointments.find(apt => apt.id === appointmentId);

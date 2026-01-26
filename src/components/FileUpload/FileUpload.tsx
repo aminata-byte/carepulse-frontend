@@ -42,7 +42,10 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           w-full p-8 
           bg-dark-light 
           border-2 border-dashed
-          ${error ? 'border-red-500' : 'border-dark-lighter hover:border-primary'}
+          ${error 
+            ? 'border-red-500' 
+            : 'border-gray-secondary hover:border-primary focus-within:border-primary'
+          }
           rounded-lg
           cursor-pointer
           transition-all

@@ -16,7 +16,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           className="sr-only peer"
           {...props}
         />
-        <div className="w-5 h-5 border-2 border-dark-lighter rounded bg-dark-light peer-checked:bg-primary peer-checked:border-primary transition-all" />
+        <div className="w-5 h-5 border-2 border-gray-secondary rounded bg-dark-light peer-checked:bg-primary peer-checked:border-primary peer-focus:border-primary transition-all" />
         <svg
           className="absolute w-3 h-3 text-white opacity-0 peer-checked:opacity-100 transition-opacity"
           fill="none"

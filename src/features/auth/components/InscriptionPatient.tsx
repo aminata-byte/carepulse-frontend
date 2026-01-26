@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Input } from '@/components/Input/Input';
 import { Button } from '@/components/Button/Button';
 import { useInscription } from '../hooks/useInscription';
@@ -25,127 +24,108 @@ const PhoneIcon = () => (
 );
 
 export const InscriptionPatient = () => {
-  const navigate = useNavigate();
   const { formData, errors, isLoading, handleChange, handleSubmit } = useInscription();
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
 
   return (
     <>
-      <div className="min-h-screen bg-dark py-8 px-4 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      {/* WRAPPER PLEIN ÉCRAN */}
+      <div className="h-screen w-screen bg-dark">
+        
+        {/* CARD PLEIN ÉCRAN */}
+        <div className="w-full h-full bg-dark-light border border-dark-lighter shadow-xl overflow-hidden">
           
-          {/* ==================== UNE SEULE CARD QUI CONTIENT TOUT ==================== */}
-          <div className="bg-dark-light rounded-2xl border border-dark-lighter shadow-xl overflow-hidden">
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              
-              {/* ==================== PARTIE GAUCHE : FORMULAIRE ==================== */}
-              <div className="p-8 lg:p-10 flex flex-col justify-center">
-                
-                {/* Logo */}
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                    <span className="text-white text-xl font-bold">+</span>
-                  </div>
-                  <span className="text-white text-2xl font-bold">CarePulse</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
+
+            {/* PARTIE GAUCHE */}
+            <div className="p-8 lg:p-10 flex flex-col justify-center">
+
+              {/* Logo */}
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                  <span className="text-white text-xl font-bold">+</span>
                 </div>
-
-                {/* Titre */}
-                <h1 className="text-white text-4xl font-bold mb-2">
-                  Hi there, ....
-                </h1>
-                <p className="text-gray-secondary mb-8">
-                  Get Started with Appointments.
-                </p>
-
-                {/* Erreur générale */}
-                {errors.general && (
-                  <div className="mb-6 p-4 bg-red-500/10 border border-red-500 rounded-lg">
-                    <p className="text-red-500 text-sm">{errors.general}</p>
-                  </div>
-                )}
-
-                {/* Formulaire */}
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Nom complet */}
-                  <Input
-                    type="text"
-                    name="nomComplet"
-                    label="Full name"
-                    placeholder="Aminata DIANE"
-                    icon={<UserIcon />}
-                    value={formData.nomComplet}
-                    onChange={handleChange}
-                    error={errors.nomComplet}
-                  />
-
-                  {/* Email */}
-                  <Input
-                    type="email"
-                    name="email"
-                    label="Email address"
-                    placeholder="aminata175@gmail.com"
-                    icon={<MailIcon />}
-                    value={formData.email}
-                    onChange={handleChange}
-                    error={errors.email}
-                  />
-
-                  {/* Téléphone */}
-                  <Input
-                    type="tel"
-                    name="telephone"
-                    label="Phone number"
-                    placeholder="+221 77 044 30 34"
-                    icon={<PhoneIcon />}
-                    value={formData.telephone}
-                    onChange={handleChange}
-                    error={errors.telephone}
-                  />
-
-                  {/* Bouton */}
-                  <Button type="submit" isLoading={isLoading}>
-                    Get Started
-                  </Button>
-                </form>
-
-                {/* Footer */}
-                <div className="mt-8 flex justify-between text-sm">
-                  <p className="text-gray-secondary">© carepulse copyright</p>
-                  <button 
-                    onClick={() => setIsAdminModalOpen(true)}
-                    className="text-primary hover:text-primary-light transition"
-                  >
-                    Admin
-                  </button>
-                </div>
+                <span className="text-white text-2xl font-bold">CarePulse</span>
               </div>
 
-              {/* ==================== PARTIE DROITE : IMAGE ==================== */}
-              <div className="hidden lg:block relative bg-[#0D0F10] overflow-hidden">
-                {/* Image doctor */}
-                <img
-                  src="https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg"
-                  alt="Doctor"
-                  className="absolute inset-0 w-full h-full object-cover opacity-90"
+              <h1 className="text-white text-4xl font-bold mb-2">
+                Hi there, ....
+              </h1>
+              <p className="text-gray-secondary mb-8">
+                Get Started with Appointments.
+              </p>
+
+              {errors.general && (
+                <div className="mb-6 p-4 bg-red-500/10 border border-red-500 rounded-lg">
+                  <p className="text-red-500 text-sm">{errors.general}</p>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <Input
+                  type="text"
+                  name="nomComplet"
+                  label="Full name"
+                  placeholder="Aminata DIANE"
+                  icon={<UserIcon />}
+                  value={formData.nomComplet}
+                  onChange={handleChange}
+                  error={errors.nomComplet}
                 />
-                
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent to-dark-light/30" />
-                
-                {/* Formes décoratives (optionnel) */}
-                <div className="absolute top-1/4 right-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-1/3 right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
+
+                <Input
+                  type="email"
+                  name="email"
+                  label="Email address"
+                  placeholder="aminata175@gmail.com"
+                  icon={<MailIcon />}
+                  value={formData.email}
+                  onChange={handleChange}
+                  error={errors.email}
+                />
+
+                <Input
+                  type="tel"
+                  name="telephone"
+                  label="Phone number"
+                  placeholder="+221 77 044 30 34"
+                  icon={<PhoneIcon />}
+                  value={formData.telephone}
+                  onChange={handleChange}
+                  error={errors.telephone}
+                />
+
+                <Button type="submit" isLoading={isLoading}>
+                  Get Started
+                </Button>
+              </form>
+
+              <div className="mt-8 flex justify-between text-sm">
+                <p className="text-gray-secondary">© carepulse copyright</p>
+                <button
+                  onClick={() => setIsAdminModalOpen(true)}
+                  className="text-primary hover:text-primary-light transition"
+                >
+                  Admin
+                </button>
               </div>
-
             </div>
-          </div>
 
+            {/* PARTIE DROITE */}
+            <div className="hidden lg:block relative bg-[#0D0F10]">
+              <img
+                src="https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg"
+                alt="Doctor"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-dark-light/30" />
+            </div>
+
+          </div>
         </div>
       </div>
 
-      {/* Modal Admin */}
-      <AdminLoginModal 
+      <AdminLoginModal
         isOpen={isAdminModalOpen}
         onClose={() => setIsAdminModalOpen(false)}
       />
